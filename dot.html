@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kecocokan Pasangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Uji Kecocokan Pasangan</h1>
+    <form id="loveCalculator">
+        Nama Anda: <input type="text" id="namaPertama"><br>
+        Nama Pasangan: <input type="text" id="namaKedua"><br>
+        <button type="button" onclick="hitungKecocokan()">Hitung Kecocokan</button>
+    </form>
+    <p id="hasilKecocokan"></p>
+
+    <script>
+        function hitungKecocokan() {
+            var namaPertama = document.getElementById("namaPertama").value.toLowerCase();
+            var namaKedua = document.getElementById("namaKedua").value.toLowerCase();
+
+            var totalKecocokan = 0;
+            for (var i = 0; i < namaPertama.length; i++) {
+                totalKecocokan += namaPertama.charCodeAt(i);
+            }
+            for (var i = 0; i < namaKedua.length; i++) {
+                totalKecocokan += namaKedua.charCodeAt(i);
+            }
+
+            var persentaseKecocokan = totalKecocokan % 101;
+            var hasil = "Kecocokan pasangan: " + persentaseKecocokan + "%";
+
+            document.getElementById("hasilKecocokan").textContent = hasil;
+        }
+    </script>
+    
+</body>
+</html>
